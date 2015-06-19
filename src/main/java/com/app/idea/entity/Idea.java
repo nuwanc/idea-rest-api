@@ -7,17 +7,13 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Idea {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     @Column
     private String title;
-
     @Column
     private String description;
-
     @Column
     private Date createdAt;
 
