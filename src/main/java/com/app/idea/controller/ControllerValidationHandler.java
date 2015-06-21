@@ -47,6 +47,18 @@ public class ControllerValidationHandler {
 
     }
 
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public MessageDTO processOtherExceptions(Exception ex){
+        MessageDTO message = null;
+        if (ex != null){
+            message = new MessageDTO(MessageType.ERROR,ex.getMessage());
+        }
+
+        return message;
+    }
+
 
     private MessageDTO processFieldError(FieldError error) {
         MessageDTO message = null;
